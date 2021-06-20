@@ -13,5 +13,6 @@ namespace ApplicationDevelopment.Models
         public string Department { get; set; }
         public string Location { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public string Education { get; set; }
     }
 }

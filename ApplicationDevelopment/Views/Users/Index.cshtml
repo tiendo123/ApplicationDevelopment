@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ApplicationDevelopment.Models.BaseUser>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header">
+                    List Users
+                    @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" }) 
+                </div>
+                @if (ViewBag.Message != null)
+                {
+                    <div class="alert alert-success" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>User Name</th>
+                                <th>Email</th>
+                                <th>User Role</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                                <th>Change Password</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int i = 1;
+                            }
+                            @foreach (var user in Model)
+                            {
+
+                            <tr>
+                                <td>@i</td>
+                                <td>@user.UserName</td>
+                                <td>@user.Email</td>
+                                <td>@user.Role</td>
+                                <td><a href="@Url.Action("Edit","Users",new {id=user.Id})" class="badge badge-warning">Modify</a></td>
+                                <td><a href="@Url.Action("Delete","Users",new {id=user.Id})" class="badge badge-danger">Remove</a></td>
+                                <td><a href="@Url.Action("ResetPassword","Users",new {code=user.Id})" class="badge badge-danger">Change Password</a></td>
+                            </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
