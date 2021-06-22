@@ -58,7 +58,7 @@ namespace ApplicationDevelopment.Controllers
                 _userManager = value;
             }
         }
-        // GET: Courses
+       
         public ActionResult Index(string name)
         {
             if (String.IsNullOrWhiteSpace(name))
@@ -125,22 +125,22 @@ namespace ApplicationDevelopment.Controllers
                 };
                 return View(modelInfo);
             }
-            var findCourse = _db.Courses.SingleOrDefault(c => c.Id == model.Course.Id);
-            if (findCourse == null)
+            var Coursedb = _db.Courses.SingleOrDefault(c => c.Id == model.Course.Id);
+            if (Coursedb == null)
             {
                 return HttpNotFound();
             }
-            findCourse.Name = model.Course.Name;
-            findCourse.Description = model.Course.Description;
-            findCourse.CategoryId = model.Course.CategoryId;
+            Coursedb.Name = model.Course.Name;
+            Coursedb.Description = model.Course.Description;
+            Coursedb.CategoryId = model.Course.CategoryId;
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
      
         public ActionResult Delete(int Id)
         {
-            var findCourse = _db.Courses.SingleOrDefault(c => c.Id == Id);
-            _db.Courses.Remove(findCourse);
+            var Coursedb = _db.Courses.SingleOrDefault(c => c.Id == Id);
+            _db.Courses.Remove(Coursedb);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
