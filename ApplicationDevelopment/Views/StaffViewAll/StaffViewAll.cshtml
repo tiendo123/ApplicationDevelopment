@@ -1,0 +1,67 @@
+﻿
+@model ApplicationDevelopment.ViewModels.StaffViewAllVm
+@{
+    ViewBag.Title = "View All";
+}
+
+<h2>Trainer List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>User Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        @{var i = 1;}
+        @foreach (var item in Model.TrainerList)
+        {
+            <tr>
+                <td>@i</td>
+                <td>@item.Trainer.FullName</td>
+                <td>@item.Trainer.Email</td>
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+<h2>Trainee List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>User Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+   
+    <tbody>
+        @{var x = 1;}
+        @foreach (var item in Model.TraineeList)
+        {
+            <tr>
+                <td>@x</td>
+                <td>@item.Trainee.FullName</td>
+                <td>@item.Trainee.Email</td>
+            </tr>
+            x++;
+        }
+    </tbody>
+</table>
+
+
+
+
