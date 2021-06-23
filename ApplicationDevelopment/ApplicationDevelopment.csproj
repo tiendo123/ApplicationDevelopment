@@ -279,10 +279,11 @@
     <Content Include="Views\Courses\Edit.cshtml" />
     <Content Include="Views\Enrollments\SelectTrainee.cshtml" />
     <Content Include="Views\Enrollments\SelectCourse.cshtml" />
+    <Content Include="Views\Assignment\SelectCourse.cshtml" />
+    <Content Include="Views\Assignment\SelectTrainer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Assignment\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
