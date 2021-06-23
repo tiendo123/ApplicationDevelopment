@@ -152,14 +152,25 @@ namespace ApplicationDevelopment.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin,Staff")]
         public ActionResult Register()
         {
             List<SelectListItem> list = new List<SelectListItem>();
-            foreach (var role in RoleManager.Roles)
+            if (User.IsInRole("Admin"))
             {
-                list.Add(new SelectListItem() { Value = role.Name, Text = role.Name });
+                foreach (var role in RoleManager.Roles.Where(r=> r.Name != "Trainee"))
+                {
+                    list.Add(new SelectListItem() { Value = role.Name, Text = role.Name });
+                }
             }
+            if (User.IsInRole("Staff"))
+            {
+                foreach (var role in RoleManager.Roles.Where(r => r.Name == "Trainee"))
+                {
+                    list.Add(new SelectListItem() { Value = role.Name, Text = role.Name });
+                }
+            }
+
             ViewBag.Roles = list;
             return View();
         }
@@ -167,7 +178,7 @@ namespace ApplicationDevelopment.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin,Staff")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
