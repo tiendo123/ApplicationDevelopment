@@ -1,0 +1,23 @@
+﻿@model IEnumerable<ApplicationDevelopment.Models.Assign>
+
+<h2>All Course Assigned</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Course Id</th>
+            <th scope="col">Course Name</th>
+            <th scope="col">Course Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.Course.Id</th>
+                <th>@item.Course.Name</th>
+                <td>@item.Course.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
