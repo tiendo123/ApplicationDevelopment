@@ -22,8 +22,30 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("User Management", "Index", "Users")</li>
+                    }
+                    @if (User.IsInRole("Staff"))
+                    {
+                        <li>@Html.ActionLink("User Management", "Index", "Users")</li>
+                        <li>@Html.ActionLink("Category", "Index", "Categories")</li>
+                        <li>@Html.ActionLink("Course", "Index", "Courses")</li>
+                        <li>@Html.ActionLink("Enroll ", "SelectCourse", "Enrolments")</li>
+                        <li>@Html.ActionLink("Assign", "SelectCourse", "Assignment")</li>
+                        <li>@Html.ActionLink("Overview", "SelectCourse", "StaffViewAll")</li>
+                    }
+                    @if (User.IsInRole("Trainer"))
+                    {
+                        <li>@Html.ActionLink("Edit Profile", "Edit", "Trainers")</li>
+                        <li>@Html.ActionLink("View Course Assigned", "CourseAssigned", "Trainers")</li>
+                    }
+                    @if (User.IsInRole("Trainee"))
+                    {
+                        <li>@Html.ActionLink("Edit Profile", "Edit", "Trainee")</li>
+                        <li>@Html.ActionLink("View Course Enrolled", "CourseEnrolled", "Trainee")</li>
+                        <li>@Html.ActionLink("View Course Available", "CourseAvailable", "Trainee")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
