@@ -95,12 +95,18 @@ namespace ApplicationDevelopment.Controllers
         [HttpPost]
         public ActionResult ChangeCourse(ChangeCourseViewmodel model)
         {
-            var enrolldb = _db.Assigns.Where(c => c.CourseId == courseId && c.TrainerId == model.UserId).FirstOrDefault();
-            if (enrolldb == null)
+            var assigndb = _db.Assigns.Where(c => c.CourseId == courseId && c.TrainerId == model.UserId).FirstOrDefault();
+            if (assigndb == null)
             {
                 ViewBag.message = "Error non-existed course assigned";
             }
-            enrolldb.CourseId = model.Course.Id;
+            var assignnewcourseExist = _db.Assigns.Where(c => c.CourseId == courseId && c.TrainerId == model.UserId);
+            if (assignnewcourseExist.Any())
+            {
+                ViewBag.message = "Error  Course already change";
+                return RedirectToAction("SelectCourse");
+            }
+            assigndb.CourseId = model.Course.Id;
             _db.SaveChanges();
             return RedirectToAction("SelectCourse");
         }

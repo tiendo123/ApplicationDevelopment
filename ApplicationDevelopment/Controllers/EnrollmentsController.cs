@@ -100,6 +100,12 @@ namespace ApplicationDevelopment.Controllers
             {
                 ViewBag.message = "Error non-existed course assigned";
             }
+            var enrollnewcourseExist = _db.Enrolls.Where(c => c.CourseId == courseId && c.TraineeId == model.UserId);
+            if (enrollnewcourseExist.Any())
+            {
+                ViewBag.message = "Error  Course already change";
+                return RedirectToAction("SelectCourse");
+            }
             enrolldb.CourseId = model.Course.Id;
             _db.SaveChanges();
             return RedirectToAction("SelectCourse");
