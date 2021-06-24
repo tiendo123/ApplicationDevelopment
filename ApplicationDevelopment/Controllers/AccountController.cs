@@ -228,7 +228,7 @@ namespace ApplicationDevelopment.Controllers
                 }
                 if (model.RoleName == "Trainee")
                 {
-                    var user = new Trainee { UserName = model.Email, Email = model.Email, FullName = model.Fullname };
+                    var user = new Trainee { UserName = model.Email, Email = model.Email, FullName = model.Fullname, DateOfBirth = DateTime.Now };
                     var result = await UserManager.CreateAsync(user, model.Password);
 
                     if (result.Succeeded)
