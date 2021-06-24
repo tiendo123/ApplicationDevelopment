@@ -209,6 +209,7 @@
     <Compile Include="Models\Trainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ChangeCourseViewmodel.cs" />
     <Compile Include="ViewModels\CourseCategoryViewModel.cs" />
     <Compile Include="ViewModels\StaffViewAllVm.cs" />
     <Compile Include="ViewModels\UsersViewModel.cs" />
@@ -292,6 +293,8 @@
     <Content Include="Views\Trainee\CourseEnrolled.cshtml" />
     <Content Include="Views\Trainee\Edit.cshtml" />
     <Content Include="Views\Trainee\CourseAvailable.cshtml" />
+    <Content Include="Views\Enrollments\ChangeCourse.cshtml" />
+    <Content Include="Views\Assignment\ChangeCourse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

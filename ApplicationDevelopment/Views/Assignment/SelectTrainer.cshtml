@@ -24,8 +24,8 @@
                 <td>@item.Email</td>
                 <td>
                     @Html.ActionLink("Assignment", "Assignment", new { Id = item.Id }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("ChangeCourse", "ChangeCourse", new { Id = item.Id }, new { @class = "btn btn-warning" })
                     @Html.ActionLink("DeleteAssignment", "DeleteAssignment", new { Id = item.Id }, new { @class = "btn btn-danger" })
-
                 </td>
             </tr>
             i++;

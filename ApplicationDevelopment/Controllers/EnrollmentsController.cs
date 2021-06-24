@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using ApplicationDevelopment.Models;
+using ApplicationDevelopment.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -72,6 +73,29 @@ namespace ApplicationDevelopment.Controllers
             _db.Enrolls.Remove(enrollment);
             _db.SaveChanges();
             ViewBag.message = "Delete Successfully";
+            return RedirectToAction("SelectCourse");
+        }
+
+        public ActionResult ChangeCourse(string id)
+        {
+
+            var changeCourseViewmodel = new ChangeCourseViewmodel()
+            {
+                CourseList = _db.Courses.Where(c => c.Id != courseId),
+                UserId = id
+            };
+            return View(changeCourseViewmodel);
+        }
+        [HttpPost]
+        public ActionResult ChangeCourse(ChangeCourseViewmodel model)
+        {
+            var enrolldb = _db.Enrolls.Where(c => c.CourseId == courseId && c.TraineeId == model.UserId).FirstOrDefault();
+            if (enrolldb == null)
+            {
+                ViewBag.message = "Error non-existed course assigned";
+            }
+            enrolldb.CourseId = model.Course.Id;
+            _db.SaveChanges();
             return RedirectToAction("SelectCourse");
         }
     }

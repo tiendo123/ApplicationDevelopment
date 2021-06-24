@@ -135,5 +135,7 @@ namespace ApplicationDevelopment.Controllers
             availablecourse = allcourse.Except(allcourse.Where(i => enrollments.Select(o => o.CourseId).ToList().Contains(i.Id))).ToList();
             return View(availablecourse);
         }
+
+        
     }
 }
