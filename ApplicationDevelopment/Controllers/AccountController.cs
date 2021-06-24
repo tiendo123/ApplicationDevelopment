@@ -192,7 +192,7 @@ namespace ApplicationDevelopment.Controllers
                     if (result.Succeeded)
                     {
                         result = await UserManager.AddToRoleAsync(user.Id, "Admin");
-                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                         // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                         // Send an email with this link
@@ -213,7 +213,7 @@ namespace ApplicationDevelopment.Controllers
                     if (result.Succeeded)
                     {
                         result = await UserManager.AddToRoleAsync(user.Id, "Staff");
-                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                         // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                         // Send an email with this link
@@ -234,7 +234,7 @@ namespace ApplicationDevelopment.Controllers
                     if (result.Succeeded)
                     {
                         result = await UserManager.AddToRoleAsync(user.Id, "Trainee");
-                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                         // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                         // Send an email with this link
@@ -255,7 +255,7 @@ namespace ApplicationDevelopment.Controllers
                     if (result.Succeeded)
                     {
                         result = await UserManager.AddToRoleAsync(user.Id, "Trainer");
-                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                         // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                         // Send an email with this link
