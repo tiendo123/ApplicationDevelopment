@@ -56,6 +56,12 @@ namespace ApplicationDevelopment.Controllers
                 TraineeId = Id,
                 CourseId = courseId
             };
+            var enrollExist = _db.Enrolls.Where(c => c.CourseId == courseId && c.TraineeId == Id);
+            if (enrollExist.Any())
+            {
+                ViewBag.message = "Error when enroll";
+                return RedirectToAction("SelectTrainee");
+            }
             _db.Enrolls.Add(enrollment);
             _db.SaveChanges();
             ViewBag.message = "Enroll Successfully";
