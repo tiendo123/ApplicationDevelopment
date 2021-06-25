@@ -16,8 +16,6 @@ namespace ApplicationDevelopment.Controllers
     public class CoursesController : Controller
     {
         private ApplicationDbContext _db;
-        private ApplicationUserManager _userManager;
-        private ApplicationRoleManager _roleManager;
         private void AddErrors(IdentityResult result)
         {
             foreach (var error in result.Errors)
@@ -29,35 +27,7 @@ namespace ApplicationDevelopment.Controllers
         {
             _db = new ApplicationDbContext();
         }
-        public CoursesController(ApplicationUserManager userManager, ApplicationRoleManager roleManager)
-        {
-            UserManager = userManager;
-            RoleManager = roleManager;
-        }
 
-        public ApplicationRoleManager RoleManager
-        {
-            get
-            {
-                return _roleManager ?? HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
-            }
-            private set
-            {
-                _roleManager = value;
-            }
-        }
-
-        public ApplicationUserManager UserManager
-        {
-            get
-            {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                _userManager = value;
-            }
-        }
        
         public ActionResult Index(string name)
         {

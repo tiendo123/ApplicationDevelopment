@@ -56,7 +56,7 @@ namespace ApplicationDevelopment.Controllers
         }
         public async Task<ActionResult> Index()
         {
-            string userIdValue = String.Empty;
+            string userIdValue = String.Empty; // 
             var claimsIdentity = User.Identity as ClaimsIdentity;
             if (claimsIdentity != null)
             {
