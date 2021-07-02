@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ApplicationDevelopment.Models.DepartmentAssign>
+@{
+    ViewBag.Title = "View All";
+}
+
+<h2>TrainerList</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>User Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @{var i = 1;}
+        @foreach (var trainer in Model)
+        {
+            <tr>
+                <td>@i</td>
+                <td>@trainer.Trainer.FullName</td>
+                <td>@trainer.Trainer.Email</td>
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
+

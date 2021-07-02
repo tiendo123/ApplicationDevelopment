@@ -30,10 +30,13 @@
                     {
                         <li>@Html.ActionLink("User Management", "Index", "Users")</li>
                         <li>@Html.ActionLink("Category", "Index", "Categories")</li>
+                        <li>@Html.ActionLink("Department", "Index", "Departments")</li>
                         <li>@Html.ActionLink("Course", "Index", "Courses")</li>
                         <li>@Html.ActionLink("Enroll ", "SelectCourse", "Enrollments")</li>
                         <li>@Html.ActionLink("Assign", "SelectCourse", "Assignment")</li>
+                        <li>@Html.ActionLink("AssignDepart", "Selectdepartment", "AssignDepartment")</li>
                         <li>@Html.ActionLink("Overview", "SelectCourse", "StaffViewAll")</li>
+                        <li>@Html.ActionLink("ViewDeparment", "Selectdepartment", "StaffViewAll")</li>
                     }
                     @if (User.IsInRole("Trainer"))
                     {

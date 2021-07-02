@@ -41,5 +41,13 @@ namespace ApplicationDevelopment.Controllers
 
             return View(staffViewAllVm);
         }
+        public ActionResult SelectDepartment()
+        {
+            return View(_db.Departments.ToList());
+        }
+        public ActionResult StaffViewDepartmentAll(int Id)
+        {
+            return View(_db.DepartmentAssigns.Where(d=> d.DepartmentId == Id).Include(d => d.Trainer).ToList());
+        }
     }
 }

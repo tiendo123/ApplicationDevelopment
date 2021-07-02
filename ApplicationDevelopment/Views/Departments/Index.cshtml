@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ApplicationDevelopment.Models.Department>
+@{
+    ViewBag.Title = "AllDepartment";
+}
+
+<h2>All Departments</h2>
+@using (Html.BeginForm("Index", "Departments"))
+{
+    <div class="form-group">
+        @Html.Label("Search task by Name")
+        @Html.TextBox("departName", null, new { @class = "form-control" })
+        <button type="submit" class="btn btn-primary">Search Department By Name</button>
+    </div>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Department Id</th>
+            <th scope="col">Department Name</th>
+            <th scope="col">Action </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.Id</th>
+                <th>@item.DepartmentName</th>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { Id = item.Id }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Delete", "Delete", new { Id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+    @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary" })
+</table>
+

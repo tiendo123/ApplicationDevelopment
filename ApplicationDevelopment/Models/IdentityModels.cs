@@ -38,6 +38,7 @@ namespace ApplicationDevelopment.Models
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Enroll> Enrolls { get; set; }
         public virtual DbSet<Assign> Assigns { get; set; }
-
+        public virtual DbSet<Department> Departments { get; set; }
+        public virtual DbSet<DepartmentAssign> DepartmentAssigns { get; set; }
     }
 }

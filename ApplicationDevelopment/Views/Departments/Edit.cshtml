@@ -1,0 +1,34 @@
+﻿@model ApplicationDevelopment.Models.Department
+@{
+    ViewBag.Title = "Edit Department";
+}
+
+<h2>Edit Category</h2>
+
+@using (Html.BeginForm("Edit", "Departments", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Edit Category</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Id, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Id, new { @class = "form-control", @readonly = "readonly" })
+        </div>
+        @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DepartmentName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.DepartmentName, new { @class = "form-control" })
+        </div>
+        @Html.ValidationMessageFor(model => model.DepartmentName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @Html.ActionLink("Back", "Index", "Departments", null, new { @class = "btn btn-default" })
+            <input type="submit" class="btn btn-default" value="Edit Department" />
+        </div>
+    </div>
+}
